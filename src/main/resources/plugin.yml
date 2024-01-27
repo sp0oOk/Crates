@@ -1,0 +1,29 @@
+name: Crates
+version: 2.14.4
+main: com.github.spook.CratesPlugin
+description: A crate plugin for Minecraft servers.
+website: https://github.com/sp0oOk
+api-version: '1.8.8'
+softdepend: [ ExtinctionToggles, ExtinctionGifts, HeadDatabase ]
+depend: [ MassiveCore, DecentHolograms, PlaceholderAPI ]
+author: spook
+permissions:
+  crates.give: { description: give crate keys, default: false }
+  crates.giveall: { description: give all online crate keys, default: false }
+  crates.place: { description: set crate locations, default: false }
+  crates.version: { description: display plugin version, default: false }
+  crates.generate: { description: generate configuration files, default: false }
+  crates.watch: { description: watch hypebox openings, default: false }
+  crates.*:
+    children:
+      crates.basecommand: true
+      crates.give: true
+      crates.giveall: true
+      crates.place: true
+      crates.version: true
+      crates.generate: true
+      crates.watch: true
+  crates.kit.op:
+    default: op
+    children:
+      crates.*: true
